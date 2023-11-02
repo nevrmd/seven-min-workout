@@ -6,5 +6,5 @@
             <solid android:color="@color/black" />
         </shape>
     </item>
-    <item android:drawable="@drawable/item_curcular_color_accent_border" />
+    <item android:drawable="@drawable/item_circular_color_accent_border" />
 </ripple>

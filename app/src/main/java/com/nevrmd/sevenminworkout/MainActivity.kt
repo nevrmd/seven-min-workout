@@ -2,8 +2,9 @@ package com.nevrmd.sevenminworkout
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.nevrmd.sevenminworkout.databinding.ActivityMainBinding
+import android.content.Intent
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,7 +16,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.llStart.setOnClickListener {
-            Toast.makeText(this, "Works!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ExerciseActivity::class.java)
+            startActivity(intent)
         }
     }
 }
