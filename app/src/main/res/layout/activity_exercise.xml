@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GET READY FOR"
+            android:text="@string/tv_get_ready"
             android:textColor="@color/colorAccent"
             android:textSize="22sp"
             android:textStyle="bold"/>
@@ -63,7 +63,7 @@
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:text="10"/>
+                android:text="@string/tv_timer_default_number"/>
 
         </LinearLayout>
 
@@ -80,12 +80,21 @@
         android:orientation="vertical"
         android:visibility="gone"
         tools:visibility="visible">
-
+        
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/iv_exercise_description"
+            android:src="@drawable/ic_jumping_jacks"/>
+        
         <TextView
             android:id="@+id/tvExerciseName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Exercise Name"
+            android:text="@string/tv_exercise_name"
             android:textColor="@color/colorAccent"
             android:textSize="22sp"
             android:textStyle="bold"/>
@@ -123,7 +132,7 @@
                     android:textColor="@color/white"
                     android:textSize="25sp"
                     android:textStyle="bold"
-                    android:text="30"/>
+                    android:text="@string/tv_exercise_timer_default_number"/>
 
             </LinearLayout>
 

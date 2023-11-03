@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SevenMinWorkout</string>
     <string name="iv_logo">7MinWorkout logo</string>
+    <string name="iv_exercise_description">Exercise demonstration</string>
+    <string name="tv_exercise_name">Exercise Name</string>
+    <string name="tv_get_ready">GET READY FOR</string>
+    <string name="tv_timer_default_number">10</string>
+    <string name="tv_exercise_timer_default_number">30</string>
 </resources>
