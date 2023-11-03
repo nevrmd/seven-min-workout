@@ -71,4 +71,64 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/llExerciseView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tb_exercise_activity"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tvExerciseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exercise Name"
+            android:textColor="@color/colorAccent"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <FrameLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/item_circular_color_accent_background">
+
+            <ProgressBar
+                android:id="@+id/progressBarExercise"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_gravity="center"
+                android:background="@drawable/circular_progress_gray"
+                android:indeterminate="false"
+                android:max="30"
+                android:progress="100"
+                android:progressDrawable="@drawable/circular_progress_bar"
+                android:rotation="-90" />
+
+            <LinearLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/item_circular_color_accent_background"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvExerciseTimer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:text="30"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>

@@ -3,6 +3,7 @@ package com.nevrmd.sevenminworkout
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.View
 import android.widget.Toast
 import com.nevrmd.sevenminworkout.databinding.ActivityExerciseBinding
 
@@ -10,6 +11,9 @@ class ExerciseActivity : AppCompatActivity() {
 
     private var restTimer: CountDownTimer? = null
     private var restProgress = 0
+
+    private var exerciseTimer: CountDownTimer? = null
+    private var exerciseProgress = 0
 
     private lateinit var binding: ActivityExerciseBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,11 +51,7 @@ class ExerciseActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                Toast.makeText(
-                    this@ExerciseActivity,
-                    "Now you can start the exercise",
-                    Toast.LENGTH_SHORT
-                ).show()
+                setupExerciseView()
             }
         }.start()
     }
@@ -63,5 +63,38 @@ class ExerciseActivity : AppCompatActivity() {
         }
 
         setRestProgressBar()
+    }
+
+    private fun setExerciseProgressBar() {
+        binding.progressBarExercise.progress = exerciseProgress
+        exerciseTimer = object: CountDownTimer(30000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                exerciseProgress++
+                val timeToDisplay = 30-exerciseProgress
+                binding.progressBarExercise.progress = timeToDisplay
+                binding.tvExerciseTimer.text = "$timeToDisplay"
+            }
+
+            override fun onFinish() {
+                Toast.makeText(
+                    this@ExerciseActivity,
+                    "Proceed to the next exercise",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }.start()
+    }
+
+    private fun setupExerciseView() {
+
+        binding.llRestView.visibility = View.GONE
+        binding.llExerciseView.visibility = View.VISIBLE
+
+        if(exerciseTimer != null) {
+            exerciseTimer!!.cancel()
+            exerciseProgress = 0
+        }
+
+        setExerciseProgressBar()
     }
 }
