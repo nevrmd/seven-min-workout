@@ -1,5 +1,7 @@
 package com.nevrmd.sevenminworkout
 
+import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -20,6 +22,8 @@ class ExerciseActivity : AppCompatActivity() {
 
     private var timeForTheExercise: Long = 30
     private var timeForPreparing: Long = 10
+
+    private var player: MediaPlayer? = MediaPlayer()
 
     private lateinit var binding: ActivityExerciseBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +54,10 @@ class ExerciseActivity : AppCompatActivity() {
             exerciseProgress = 0
         }
 
+        if(player != null) {
+            player!!.stop()
+        }
+
         super.onDestroy()
     }
 
@@ -72,6 +80,14 @@ class ExerciseActivity : AppCompatActivity() {
     }
 
     private fun setupRestView () {
+        try {
+            player = MediaPlayer.create(applicationContext, R.raw.pluh)
+            player!!.isLooping = false
+            player!!.start()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
         binding.llRestView.visibility = View.VISIBLE
         binding.llExerciseView.visibility = View.GONE
 
